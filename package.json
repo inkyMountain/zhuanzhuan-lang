@@ -1,0 +1,25 @@
+{
+    "name": "zhuanzhuan-lang",
+    "displayName": "zhuanzhuan-lang",
+    "description": "Language support for zhuanzhuan lang",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.51.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "zhuanzhuan",
+            "aliases": ["zhuanzhuan", "zhuanzhuan"],
+            "extensions": [".zz",".zhuanzhuan"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "zhuanzhuan",
+            "scopeName": "source.zz",
+            "path": "./syntaxes/zhuanzhuan.tmLanguage.json"
+        }]
+    }
+}
