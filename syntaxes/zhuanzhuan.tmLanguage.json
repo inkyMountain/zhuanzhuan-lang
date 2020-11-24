@@ -1,25 +1,113 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "zhuanzhuan",
+	"scopeName": "source.zz",
 	"patterns": [
 		{
 			"include": "#keywords"
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#braces"
+		},
+		{
+			"include": "#bracket"
+		},
+		{
+			"include": "#comments"
 		}
 	],
 	"repository": {
+		"comments": {
+			"name": "punctuation.comment",
+			"begin": "注释：",
+			"end": "\\n",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.comment.open"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.comment.close"
+				}
+			}
+		},
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.zhuanzhuan",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.zhuanzhuan",
+					"match": "\\b(如果|遍历|结束|打印|函数)\\b"
+				}
+			]
+		},
+		"variables": {
+			"name": "declaration.variable",
+			"begin": "\\[",
+			"end": "\\]",
+			"beginCaptures": {
+				"0": {
+					"name": "declaration.variable.open"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "declaration.variable.close"
+				}
+			}
+		},
+		"braces": {
+			"name": "punctuation.brace",
+			"begin": "\\{",
+			"end": "\\}",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.brace.open"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.brace.close"
+				}
+			}
+		},
+		"bracket": {
+			"name": "punctuation.bracket",
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.bracket.open"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.bracket.close"
+				}
+			},
+			"patterns": [
+				{"include": "#variables"}
+			]
 		},
 		"strings": {
-			"name": "string.quoted.double.zhuanzhuan",
-			"begin": "\"",
-			"end": "\"",
+			"name": "string.quoted.book.zhuanzhuan",
+			"begin": "《",
+			"end": "》",
+			"beginCaptures": {
+				"0": {
+					"name": "string.quoted.book.open"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "string.quoted.book.close"
+				}
+			},
 			"patterns": [
 				{
 					"name": "constant.character.escape.zhuanzhuan",
@@ -27,6 +115,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.zz"
+	}
 }
